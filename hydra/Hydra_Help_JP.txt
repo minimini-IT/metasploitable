@@ -1,0 +1,105 @@
+構文：hydra [[[-l LOGIN | -L FILE] [-p PASS | -P FILE]] | [-C FILE]] [-e nsr] [-o FILE] [-t TASKS] [-M FILE [-T TASKS]] [-w TIME] [-W TIME] [-f T] [-s PORT] [-x MIN：MAX：CHARSET] [-c TIME] [-ISOuvVd46] [service：// server [：PORT] [/ OPT]]
+
+オプション：
+  -R 			前の中止/クラッシュしたセッションを復元する
+  -I 			既存の復元ファイルを無視します（10秒も待たないでください）
+  -S 			SSL接続を実行します
+  -s PORT		サービスが別のデフォルトポートにある場合は、ここで定義します。
+  -l LOGIN or -L FILE	LOGIN名ログインするか、FILEから複数のログインをロードします。
+  -p PASS or -P FILE	パスワードPASSを試すか、FILEから複数のパスワードをロードします。
+  -x MIN：MAX：CHARSET	パスワードのブルートフォース生成、ヘルプを見るには "-x -h"とタイプしてください。
+  -y 			bruteforceでシンボルの使用を無効にします。上記参照
+  -e nsr 		"n"ヌルパスワード、 "s"パスログイン、"r"逆ログイン
+  -u 			パスワードではなく、ユーザーの周りをループします（有効です。-xで暗黙的に指定されます）
+  -C FILE		-L / -Pオプションの代わりにコロンで区切られた "login：pass"フォーマット
+  -M FILE		攻撃するサーバのリスト、1行に1エントリ、ポートを指定する '：'
+  -o FILE		ログイン名とパスワードのペアを標準出力ではなくFILEに書き込みます。
+  -b FORMAT		-o FILEの形式を指定します。text（デフォルト）、json、jsonv1
+  -f / -F		ログイン/パスのペアが見つかると終了します（ホストごとに-M：-f、-Fグローバル）。
+  -t TASKS(int)		並列処理するタスク数を指定（デフォルト：16）。
+  -T TASKS(int)		実行TASKSは全体的に並列に接続します（-Mの場合、デフォルト：64）。
+  -w / -W TIME		応答待ち時間（32）/スレッドごとの接続間（0）
+  -c TIME		全スレッドでのログイン試行ごとの待機時間（-t 1を強制）
+  -4 / -6		IPv4（デフォルト）/ IPv6アドレスを使う（常に[]にも-Mにも入れる）
+  -v / -V / -d		冗長モード/ show login +試行ごとのパス/デバッグモード
+  -O 			古いSSL v2とv3を使う
+  -q			接続エラーに関するメッセージを表示しません。
+  -U			サービスモジュールの使用方法の詳細
+  -h 			より多くのコマンドラインオプション（COMPLETE HELP）
+  server 		ターゲット：DNS、IP、または192.168.0.0/24（これまたは-Mオプション）
+  service		クラッキングするサービス（サポートされているプロトコルについては下記を参照）
+  OPT			いくつかのサービスモジュールは追加入力をサポートします（モジュールヘルプのために-U）
+
+hydra -L user.lst -P pass.lst -t 4 192.168.56.103 ssh
+hydra -L user.lst -P pass.lst -t 4 ssh://192.168.56.103:22
+上記はどちらも同じだが、ポート番号が変更されていた場合は下の記述が適当
+
+サポートされているサービス
+adam6500
+asterisk
+cisco
+cisco-enable
+cvs 
+firebird 
+ftp 
+ftps 
+http[s]-{head|get|post} 
+http[s]-{get|post}form
+http-proxy 
+http-proxy-urlenum 
+icq 
+imap[s] 
+IRC 
+ldap2[s] 
+ldap3[-{cram|digest}md5][s] 
+mssql 
+mysql 
+nntp
+oracle-listener
+oracle-sid 
+pcanywhere 
+pcnfs 
+pop3[s] 
+postgres 
+radmin2 
+rdp 
+redis 
+rexec 
+rlogin 
+rpcap 
+rsh 
+rtsp 
+s7-300 
+sip 
+smb 
+smtp[s]
+smtp-enum
+snmp 
+socks5 
+ssh 
+sshkey 
+svn 
+teampeak 
+telnet[s] 
+vmauthd 
+vnc 
+xmpp
+
+Hydraは有効なログイン/パスワードのペアを推測/解読するためのツールです。 AGPLの下でライセンス
+v3.0最新版はhttps://github.com/vanhauser-thc/thc-hydraからいつでも入手できます。
+軍隊や秘密奉仕団体、または違法な目的に使用しないでください。
+これらのサービスは、afp ncp oracle sapr3にはコンパイルされていません。
+プロキシ設定にはHYDRA_PROXY_HTTPまたはHYDRA_PROXY環境変数を使用してください。
+	例えば
+	% export HYDRA_PROXY=socks5://l:p@127.0.0.1:9150 (or: socks4:// connect://)
+	% export HYDRA_PROXY=connect_and_socks_proxylist.txt  (最大64エントリ)
+	% export HYDRA_PROXY_HTTP=http://login:pass@proxy:8080
+	% export HYDRA_PROXY_HTTP=proxylist.txt  (最大64エントリ)
+
+
+例：
+  hydra -l user -P passlist.txt ftp://192.168.0.1
+  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
+  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
+  hydra -l admin -p password ftp://[192.168.0.0/24]/
+  hydra -L logins.txt -P pws.txt -M targets.txt ssh

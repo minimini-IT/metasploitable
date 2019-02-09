@@ -1,0 +1,72 @@
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Search for PATTERNS in each FILE.
+Example: grep -i 'hello world' menu.h main.c
+PATTERNS can contain multiple patterns separated by newlines.
+
+Pattern selection and interpretation:
+  -E, --extended-regexp     パターンは拡張正規表現です
+  -F, --fixed-strings       パターンは文字列です
+  -G, --basic-regexp        パターンは基本的な正規表現です
+  -P, --perl-regexp         パターンはPerlの正規表現です
+  -e, --regexp=PATTERNS     マッチングパターンにを使う
+  -f, --file=FILE           FILEからパターンを取る
+  -i, --ignore-case         大文字と小文字の区別を無視する
+  -w, --word-regexp         単語全体に一致する
+  -x, --line-regexp         行全体にのみ一致
+  -z, --null-data           データ行は改行ではなく0バイトで終わります
+
+Miscellaneous:
+  -s, --no-messages         エラーメッセージを抑制する
+  -v, --invert-match        一致しない行を選択
+  -V, --version             バージョン情報を表示して終了する
+      --help                このヘルプテキストを表示して終了する
+
+Output control:
+  -m, --max-count=NUM       NUM個の選択行の後で停止
+  -b, --byte-offset         バイトオフセットを出力行で表示します
+  -n, --line-number         出力行とともに行番号を表示
+      --line-buffered       すべての行で出力をフラッシュする
+  -H, --with-filename       出力行を含むファイル名を表示
+  -h, --no-filename         出力時にファイル名の接頭辞を抑制します
+      --label=LABEL         標準入力ファイル名の接頭辞としてLABELを使用
+  -o, --only-matching       一致する行の空でない部分だけを表示する
+  -q, --quiet, --silent     すべての通常の出力を抑制
+      --binary-files=TYPE   バイナリファイルはTYPEと仮定します。
+                            TYPEは 'binary'、 'text'、または 'without-match'です。
+  -a, --text                --binary-files = textと同じです。
+  -I                        --binary-files = without-matchと同じです。
+  -d, --directories=ACTION  ディレクトリの扱い方
+                            ACTIONは 'read'、 'recurse'、または 'skip'です。
+  -D, --devices=ACTION      デバイス、FIFO、ソケットの処理方法
+                            ACTIONは 'read'または 'skip'です
+  -r, --recursive           --directories = recurseのように
+  -R, --dereference-recursiveも同様だが、すべてのシンボリックリンクをたどる
+      --include=GLOB        GLOB（ファイルパターン）に一致するファイルのみを検索します。
+      --exclude=GLOB        GLOBに一致するファイルとディレクトリをスキップする
+      --exclude-from=FILE   FILEから任意のファイルパターンに一致するファイルをスキップします
+      --exclude-dir=GLOB    GLOBにマッチするディレクトリをスキップする
+  -L, --files-without-match 行が選択されていないFILEの名前だけを印刷します。
+  -l, --files-with-matches  選択された行を持つファイルの名前のみを印刷します
+  -c, --count               FILEごとに選択された行の数だけを印刷します。
+  -T, --initial-tab         タブを整列させる（必要ならば）
+  -Z, --null                FILE名の後に0バイトを表示
+
+Context control:
+  -B, --before-context=NUM  先行コンテキストのNUM行を表示
+  -A, --after-context=NUM   末尾コンテキストのNUM行を表示
+  -C, --context=NUM         出力コンテキストのNUM行を表示
+  -NUM                      --context = NUM​​と同じ
+      --color[=WHEN],
+      --colour[=WHEN]       一致する文字列を強調表示するためにマーカーを使用します。
+                            「常に」、「しない」、または「自動」の場合
+  -U, --binary              EOLでCR文字を取り除かない（MSDOS / Windows）
+
+When FILE is '-', read standard input.  With no FILE, read '.' if
+recursive, '-' otherwise.  With fewer than two FILEs, assume -h.
+Exit status is 0 if any line (or file if -L) is selected, 1 otherwise;
+if any error occurs and -q is not given, the exit status is 2.
+
+Report bugs to: bug-grep@gnu.org
+GNU grep home page: <http://www.gnu.org/software/grep/>
+General help using GNU software: <https://www.gnu.org/gethelp/>
+

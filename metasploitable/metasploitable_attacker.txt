@@ -1,0 +1,38 @@
+Metasploitableを攻撃
+
+・metaexploit console 起動
+　msfconsole
+
+・exploit code 検索
+　search exploit -> すべてのexploit code を検索
+　search キーワード -> 例）ssh , ftp 等
+　　　　　　　　　　　　　　vsftpd等詳細な項目も検索可能
+
+・ポートスキャン
+
+
+・辞書攻撃
+　Hydra or xHydra
+　　→オンラインパスワードクラッカー
+　　1.ユーザーリストとパスワードリストを作成
+　　　○cat > user.lst
+　　　→ユーザー名を列挙（改行で区切る）
+　　　→終了はCtrl + c
+　　　○cat > pass.lst
+　　　→パスワード列挙（改行で区切る）
+　　　→終了はCtrl + c
+
+vsftpdの攻略
+　vstpd：FTPデーモン。FTPサーバ用ソフト
+
+
+Exploit検索
+　CVE Details
+　Exploit-DB
+　等で検索すると対応するMetasploitの攻撃プログラムが分かる
+
+port 
+　21：ftp
+　22：ssh
+　1524：bindshell
+　3306：mysql
