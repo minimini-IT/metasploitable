@@ -1,0 +1,57 @@
+   auxiliary/admin/http/tomcat_administration                                    normal     Yes    Tomcat Administration Tool Default Access
+   auxiliary/admin/http/tomcat_utf8_traversal                   2009-01-09       normal     Yes    Tomcat UTF-8 Directory Traversal Vulnerability
+   auxiliary/admin/http/trendmicro_dlp_traversal                2009-01-09       normal     Yes    TrendMicro Data Loss Prevention 5.5 Directory Traversal
+   auxiliary/dos/http/apache_commons_fileupload_dos             2014-02-06       normal     No     Apache Commons FileUpload and Apache Tomcat DoS
+   auxiliary/dos/http/apache_tomcat_transfer_encoding           2010-07-09       normal     No     Apache Tomcat Transfer-Encoding Information Disclosure and DoS
+   auxiliary/dos/http/hashcollision_dos                         2011-12-28       normal     No     Hashtable Collisions
+   auxiliary/scanner/http/tomcat_enum                                            normal     Yes    Apache Tomcat User Enumeration
+   auxiliary/scanner/http/tomcat_mgr_login                                       normal     Yes    Tomcat Application Manager Login Utility
+   exploit/linux/http/cisco_prime_inf_rce                       2018-10-04       excellent  Yes    Cisco Prime Infrastructure Unauthenticated Remote Code Execution
+   exploit/multi/http/struts2_namespace_ognl                    2018-08-22       excellent  Yes    Apache Struts 2 Namespace Redirect OGNL Injection
+   exploit/multi/http/struts_code_exec_classloader              2014-03-06       manual     No     Apache Struts ClassLoader Manipulation Remote Code Execution
+   exploit/multi/http/struts_dev_mode                           2012-01-06       excellent  Yes    Apache Struts 2 Developer Mode OGNL Execution
+   exploit/multi/http/tomcat_jsp_upload_bypass                  2017-10-03       excellent  Yes    Tomcat RCE via JSP Upload Bypass
+   exploit/multi/http/tomcat_mgr_deploy                         2009-11-09       excellent  Yes    Apache Tomcat Manager Application Deployer Authenticated Code Execution
+   exploit/multi/http/tomcat_mgr_upload                         2009-11-09       excellent  Yes    Apache Tomcat Manager Authenticated Upload Code Execution
+   exploit/multi/http/zenworks_configuration_management_upload  2015-04-07       excellent  Yes    Novell ZENworks Configuration Management Arbitrary File Upload
+   post/multi/gather/tomcat_gather                                               normal     No     Gather Tomcat Credentials
+   post/windows/gather/enum_tomcat                                               normal     No     Windows Gather Apache Tomcat Enumeration
+
+
+   Tomcat Administration Tool Default Access
+   Tomcat UTF-8 Directory Traversal Vulnerability
+   TrendMicro Data Loss Prevention 5.5 Directory Traversal
+   Apache Commons FileUpload and Apache Tomcat DoS
+   Apache Tomcat Transfer-Encoding Information Disclosure and DoS
+   Hashtable Collisions
+   Apache Tomcat User Enumeration
+   Tomcat Application Manager Login Utility
+   Cisco Prime Infrastructure Unauthenticated Remote Code Execution
+   Apache Struts 2 Namespace Redirect OGNL Injection
+   Apache Struts ClassLoader Manipulation Remote Code Execution
+   Apache Struts 2 Developer Mode OGNL Execution
+   Tomcat RCE via JSP Upload Bypass
+   Apache Tomcat Manager Application Deployer Authenticated Code Execution
+   Apache Tomcat Manager Authenticated Upload Code Execution
+   Novell ZENworks Configuration Management Arbitrary File Upload
+   Gather Tomcat Credentials
+   Windows Gather Apache Tomcat Enumeration
+
+Tomcat管理ツールのデフォルトアクセス
+Tomcat UTF-8ディレクトリトラバーサルの脆弱性
+TrendMicro Data Loss Prevention 5.5ディレクトリトラバーサル
+Apache Commons FileUploadおよびApache Tomcat DoS
+Apache Tomcatの転送エンコーディング情報開示とDoS
+ハッシュテーブルの衝突
+Apache Tomcatユーザーの列挙
+Tomcatアプリケーションマネージャログインユーティリティ
+Cisco Prime Infrastructureの未認証のリモートコード実行
+Apache Struts 2ネームスペースリダイレクトOGNLインジェクション
+Apache Struts ClassLoader操作によるリモートコード実行
+Apache Struts 2開発者モードのOGNL実行
+JSPアップロードバイパスを介したTomcat RCE
+Apache Tomcat Managerアプリケーションデプロイヤの認証済みコード実行
+Apache Tomcat Managerの認証済みアップロードコードの実行
+Novell ZENworks Configuration Managementの任意のファイルのアップロード
+Tomcat認証情報を収集する
+WindowsがApache Tomcatの列挙を集める

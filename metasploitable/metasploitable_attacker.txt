@@ -36,3 +36,6 @@ port
 　22：ssh
 　1524：bindshell
 　3306：mysql
+  8180：tomcat
+  139/445：Samba
+  6667/6697：Unreal IRC

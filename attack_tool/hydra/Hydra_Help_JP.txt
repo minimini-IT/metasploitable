@@ -98,8 +98,20 @@ v3.0最新版はhttps://github.com/vanhauser-thc/thc-hydraからいつでも入�
 
 
 例：
-  hydra -l user -P passlist.txt ftp://192.168.0.1
-  hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
-  hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
-  hydra -l admin -p password ftp://[192.168.0.0/24]/
-  hydra -L logins.txt -P pws.txt -M targets.txt ssh
+  1,# hydra -l user -P passlist.txt ftp://192.168.0.1
+  2,# hydra -L userlist.txt -p defaultpw imap://192.168.0.1/PLAIN
+  3,# hydra -C defaults.txt -6 pop3s://[2001:db8::1]:143/TLS:DIGEST-MD5
+  4,# hydra -l admin -p password ftp://[192.168.0.0/24]/
+  5,# hydra -L logins.txt -P pws.txt -M targets.txt ssh
+  6,# hydra -L users -P pass -s 8180 192.168.56.103 http-form-post "/admin/j_security_check:j_username=^USER^&j_password=^PASS^:Invalid username or password"
+  　6 : http-form-post -> データ送信方法
+  　　　/admin/j_security_check -> 認証ページパス
+  　　　j_username -> ユーザー名の変数
+  　　　j_password -> パスワードの変数
+  　　　Invalid username or password -> 認証失敗時に表示される文字列
+  　　　http-form-postの書式
+  　　　　"<認証ページパス>:<送信パラメータ>:<認証失敗時に表示される文字列>"
+  　　　　送信パラメータの書式
+  　　　　　<変数名>=^<任意文字列（大文字）^&<左に同じ>&.....
+
+ポートの指定は、そのサービスのデフォルトポートでない場合のみ

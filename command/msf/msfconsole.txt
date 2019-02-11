@@ -8,6 +8,13 @@ msfconsole使用方法
 　search キーワード -> キーワードに関連する検索
 　　例）search ssh
 　　　　search ftp
+　オプションで、type , platform がある（きっとほかにもある）
+　　search type:payload shell_bind platform:linux
+　　詳しくは"search.txt"
+　　これ使える！
+　　　search name:ツールの名前 | grep 攻撃方法
+　　　例）search name:irc | grep backdoor
+　　　　　search name:samba | grep traversal
 
 3、exploit 指定
 　use exploitPAHT
@@ -33,11 +40,17 @@ Exploit target:
    0   Automatic
 ------------------------------------------------------------------------------
 上記の例では、RHOSTSを設定してやる
+　※Exploit target:は、現在設定されているtarget
+　　なので、targetを変更するには
+　　　show target コマンドでIDとNameを確認して
+　　　set target 'ID'　でtargetをセットする（'ID'の部分は数字が入る　set target 2 とか）
 
 5、option設定
 　set RHOSTS [host]
 　　例）set RHOSTS 192.168.56.103
 　　　　set RPORT * -> とすればポートも変更できる
+　オプションにはないが、payloadもセットできるみたい（webサーバーのみ？）
+　　set payload パス　-> でセットしたpayloadがデプロイされる
 
 6、実行
 　run
